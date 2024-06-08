@@ -26,14 +26,16 @@ jobs:
             echo "Gradle Wrapper not found, generating..."
             gradle wrapper
           fi
+          if [ ! -f "./gradle/wrapper/gradle-wrapper.jar" ]; then
+            echo "Gradle wrapper JAR not found, regenerating..."
+            gradle wrapper
+          fi
 
       - name: Изменение прав доступа на gradlew
         run: chmod +x gradlew
 
       - name: Сборка с Gradle
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: build
+        run: ./gradlew build
 
       - name: Проверка наличия JAR файла
         run: ls -la build/libs
@@ -50,7 +52,7 @@ jobs:
         id: create_release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
           release_name: ${{ env.VERSION }}
@@ -62,7 +64,7 @@ jobs:
       - name: Загрузка JAR файла в релиз
         uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: build/libs/*-${{ env.VERSION }}.jar

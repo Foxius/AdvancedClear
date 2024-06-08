@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'com.advclear'
-version = '1.13.1.3-SNAPSHOT'
+version = '1.13.1.4-SNAPSHOT'
 
 repositories {
     mavenCentral()
