@@ -1,0 +1,13 @@
+name: AdvancedClear
+version: 1.16
+main: com.advclear.AdvancedClear
+api-version: 1.16
+depend: [AdvancedCore]
+authors: [saikonohack]
+commands:
+  cancelcleanup:
+    description: "Отменить текущую очистку предметов"
+permissions:
+  advancedclear.cancel:
+    description: "Позволяет отменить очистку предметов"
+    default: true

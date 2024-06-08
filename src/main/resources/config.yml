@@ -1,0 +1,13 @@
+interval: 600
+key: ""
+messages:
+  en:
+    message: "All items on the ground will be removed in 1 minute!"
+    cancel_message: "Item cleanup has been cancelled!"
+    removed_message: "All items on the ground have been removed. Items removed: "
+    item_list_header: "Items removed:"
+  ru:
+    message: "Все предметы на земле будут удалены через 1 минуту!"
+    cancel_message: "Очистка предметов была отменена!"
+    removed_message: "Все предметы на земле были удалены. Удалено предметов: "
+    item_list_header: "Удалено предметов:"
