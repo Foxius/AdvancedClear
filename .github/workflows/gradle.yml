@@ -20,6 +20,13 @@ jobs:
           distribution: 'adopt'
           cache: gradle
 
+      - name: Проверка наличия Gradle Wrapper
+        run: |
+          if [ ! -f "./gradlew" ]; then
+            echo "Gradle Wrapper not found, generating..."
+            ./gradlew wrapper
+          fi
+
       - name: Изменение прав доступа на gradlew
         run: chmod +x gradlew
 
