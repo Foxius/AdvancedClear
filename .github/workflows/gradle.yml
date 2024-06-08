@@ -24,7 +24,7 @@ jobs:
         run: |
           if [ ! -f "./gradlew" ]; then
             echo "Gradle Wrapper not found, generating..."
-            ./gradlew wrapper
+            gradle wrapper
           fi
 
       - name: Изменение прав доступа на gradlew
