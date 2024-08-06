@@ -1,0 +1,5 @@
+name: AdvancedClear
+version: '${version}'
+main: com.saikonohack.AdvancedClear
+api-version: '1.20'
+load: STARTUP
